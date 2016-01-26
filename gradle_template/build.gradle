@@ -1,0 +1,32 @@
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+apply plugin: 'java' // adds 'test' task
+
+group = 'com.brunovollino'
+version = '0.1.0'
+description = "A short description of the project"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.2'
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+}
+
+task compile {
+}
+compile.dependsOn compileGroovy
+
+test {
+	testLogging {
+		// show standard out and standard error of the test JVM(s) in the console
+		events "passed", "skipped", "failed"
+		showStandardStreams true
+		showExceptions true
+		exceptionFormat "full"
+	}
+}
