@@ -1,0 +1,27 @@
+plugins {
+    id 'scala'
+    id 'com.github.lkishalmi.gatling' version '0.4.1'
+}
+
+description = "Load tests for the service"
+
+gatling.jvmArgs = ['-server', '-XX:+UseThreadPriorities',
+    '-XX:ThreadPriorityPolicy=42',
+    '-Xms512M', '-Xmx1024M', '-Xmn256M', '-Xss256k',
+    '-XX:+HeapDumpOnOutOfMemoryError',
+    '-XX:+AggressiveOpts',
+    '-XX:+OptimizeStringConcat',
+    '-XX:+UseFastAccessorMethods',
+    '-XX:+UseParNewGC',
+    '-XX:+UseConcMarkSweepGC',
+    '-XX:+CMSParallelRemarkEnabled',
+    '-Djava.net.preferIPv4Stack=true',
+    '-Djava.net.preferIPv6Addresses=false']
+
+dependencies {
+    compile 'junit:junit'
+    compile 'org.hamcrest:java-hamcrest'
+    compile 'io.gatling:gatling-core'
+    compile 'io.gatling:gatling-http'
+    compile 'io.gatling:gatling-charts'
+}
