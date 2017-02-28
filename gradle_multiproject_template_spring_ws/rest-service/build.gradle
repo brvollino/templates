@@ -19,12 +19,8 @@ configurations {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
-    compile 'org.springframework.boot:spring-boot-devtools'    
-    
-    testCompile 'junit:junit'
-    testCompile 'eu.codearte.catch-exception:catch-exception'
-    testCompile 'org.mockito:mockito-core'
-    testCompile 'org.hamcrest:java-hamcrest'
+    compile 'org.springframework.boot:spring-boot-devtools'
+
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.boot:spring-boot-test-autoconfigure'
 }

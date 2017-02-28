@@ -1,13 +1,12 @@
-apply plugin: 'eclipse'
-apply plugin: 'groovy'
-apply plugin: 'java' // adds 'test' task
+apply from: './java.gradle'
+apply from: './groovy.gradle'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+allprojects {    
+    group = 'com.company.project'
+    version = '0.0.1-SNAPSHOT'
+}
 
-group = 'com.brunovollino'
-version = '0.0.1-SNAPSHOT'
-description = "A short description of the project"
+description = "The project's description"
 
 repositories {
     mavenCentral()
@@ -15,27 +14,4 @@ repositories {
     maven {
         url "https://plugins.gradle.org/m2/"
     }
-}
-
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.2.2'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
-    testCompile 'org.mockito:mockito-core:1.10.19'
-    testCompile 'eu.codearte.catch-exception:catch-exception:1.4.4'
-    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
-}
-
-task compile {
-}
-compile.dependsOn compileGroovy
-
-test {
-	testLogging {
-		// show standard out and standard error of the test JVM(s) in the console
-		events "passed", "skipped", "failed"
-		showStandardStreams true
-		showExceptions true
-		exceptionFormat "full"
-	}
 }
