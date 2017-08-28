@@ -1,8 +1,7 @@
-apply from: './java.gradle'
 apply from: './groovy.gradle'
 
-allprojects {    
-    group = 'com.company.project'
+allprojects {
+    group = 'com.vollino.templates.gradle'
     version = '0.0.1-SNAPSHOT'
 }
 

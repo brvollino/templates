@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.slf4j:slf4j-simple:1.7.25'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    testCompile 'org.mockito:mockito-core:1.10.19'
+    testCompile 'eu.codearte.catch-exception:catch-exception:1.4.4'
+}
+
+if (!tasks.hasProperty('compile')) {
+    task compile {
+    }
+}
+compile.dependsOn compileJava
+
+test {
+    testLogging {
+        // show standard out and standard error of the test JVM(s) in the console
+        events "passed", "skipped", "failed"
+        showStandardStreams true
+        showExceptions true
+        exceptionFormat "full"
+    }
+}

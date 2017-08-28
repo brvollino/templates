@@ -1,13 +1,23 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
+    compile 'org.slf4j:slf4j-simple:1.7.25'
+
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'net.bytebuddy:byte-buddy:1.7.3'
+}
+
 if (!tasks.hasProperty('compile')) {
-    task compile {        
+    task compile {
     }
 }
 compile.dependsOn compileJava
+compile.dependsOn compileGroovy
 
 test {
     testLogging {
@@ -17,11 +27,4 @@ test {
         showExceptions true
         exceptionFormat "full"
     }
-}
-
-dependencies {
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
-    testCompile 'org.mockito:mockito-core:1.10.19'
-    testCompile 'eu.codearte.catch-exception:catch-exception:1.4.4'
 }
