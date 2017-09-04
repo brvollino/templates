@@ -1,18 +1,16 @@
-package com.company.service.load
+package com.vollino.templates.gradle.service.load
 
 import java.net.URLEncoder
 
-import scala.concurrent.duration._
-import scala.util.Random
-
 import io.gatling.core.Predef._
-import io.gatling.core.assertion._
 import io.gatling.http.Predef._
+
+import scala.concurrent.duration._
 
 class ServiceSimulation extends Simulation {
   val httpConf = http.baseURL("http://localhost:8080")
   val postRequests = 42
-  val urlParamValue = "value";
+  val urlParamValue = "value"
   val users = 50
   
   def urlEncode(url: String): String = URLEncoder.encode(url, "UTF-8")
@@ -25,12 +23,10 @@ class ServiceSimulation extends Simulation {
         .check(status.is(200)))
   }
 
-  val getEndpoint = {
-    exec(http("get request")
-      .get(s"/$urlParamValue/get-endpoint")
-      .disableUrlEncoding
-      .check(status.is(200)))
-  }
+  val getEndpoint = exec(http("get request")
+    .get(s"/$urlParamValue/get-endpoint")
+    .disableUrlEncoding
+    .check(status.is(200)))
 
   val scn = scenario("Posts then get")
       .forever {

@@ -1,4 +1,4 @@
-package com.company.service.domain;
+package com.vollino.templates.gradle.service.domain;
 
 public class GetOutput {
 	

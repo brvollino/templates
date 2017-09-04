@@ -1,4 +1,4 @@
-package com.company.service;
+package com.vollino.templates.gradle.service;
 
 import org.springframework.context.annotation.Configuration;
 

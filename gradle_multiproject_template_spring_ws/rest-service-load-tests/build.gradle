@@ -19,8 +19,6 @@ gatling.jvmArgs = ['-server', '-XX:+UseThreadPriorities',
     '-Djava.net.preferIPv6Addresses=false']
 
 dependencies {
-    compile 'junit:junit'
-    compile 'org.hamcrest:java-hamcrest'
     compile 'io.gatling:gatling-core'
     compile 'io.gatling:gatling-http'
     compile 'io.gatling:gatling-charts'

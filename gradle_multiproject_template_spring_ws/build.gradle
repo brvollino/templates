@@ -1,3 +1,10 @@
+allprojects {
+    group = 'com.vollino.templates.gradle'
+    version = '0.0.1-SNAPSHOT'
+}
+
+description = "The project's description"
+
 buildscript {
     repositories {
         mavenCentral()
@@ -5,16 +12,6 @@ buildscript {
     dependencies {
         classpath "io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE"
     }
-}
-
-description = "The project's description"
-
-allprojects {
-    apply plugin: 'eclipse'
-    apply plugin: 'idea'
-
-    group = 'com.company.service'
-    version = '0.0.1-SNAPSHOT'
 }
 
 subprojects {

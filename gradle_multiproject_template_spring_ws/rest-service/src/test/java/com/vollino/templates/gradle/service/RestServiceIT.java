@@ -1,4 +1,4 @@
-package com.company.service;
+package com.vollino.templates.gradle.service;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNotNull;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.company.service.domain.GetOutput;
+import com.vollino.templates.gradle.service.domain.GetOutput;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
